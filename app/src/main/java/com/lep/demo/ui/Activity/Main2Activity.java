@@ -21,15 +21,15 @@ public class Main2Activity extends AppCompatActivity {
     private EditText editText;
     private Button button;
     private MyTextView myTextView;
-    private String[] love = {
-            "          深秋\n" +
-                    "      本宝宝\n" +
-                    "一秋枯叶随风，\n" +
-                    "满城黄金遍地。\n" +
-                    "已有北风刺骨，\n" +
-                    "亦存牵挂暖秋。",
-
-    };
+//    private String[] love = {
+//            "          深秋\n" +
+//                    "      本宝宝\n" +
+//                    "一秋枯叶随风，\n" +
+//                    "满城黄金遍地。\n" +
+//                    "已有北风刺骨，\n" +
+//                    "亦存牵挂暖秋。",
+//
+//    };
 
 
     @Override
@@ -50,10 +50,11 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String str = editText.getText().toString();
-                myTextView.setTextColor(R.color.colorRed);
-                for (int i = 0; i < love.length; i++) {
-                    myTextView.start(love[i]);
-                }
+                myTextView.setText(str);
+//                myTextView.setTextColor(R.color.colorRed);
+//                for (int i = 0; i < love.length; i++) {
+//                    myTextView.start(love[i]);
+//                }
 
             }
         });

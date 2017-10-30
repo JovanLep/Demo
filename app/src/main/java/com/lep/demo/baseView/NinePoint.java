@@ -29,16 +29,16 @@ public class NinePoint extends View {
     private Bitmap ErrorBit;
 
     private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
-    private Paint paintlineRight=new Paint();
-    private Paint paintlineError=new Paint();
+    private Paint paintlineRight = new Paint();
+    private Paint paintlineError = new Paint();
 
     //    修改图形的位置
     private float bitMapR;
     private float mouseX, mouseY;
-//    定义标记，标记判断是否是绘制状态
-    private boolean isDraw=false;
-//    定义一个集合保存状态
-    private List<Point> list=new ArrayList<>();
+    //    定义标记，标记判断是否是绘制状态
+    private boolean isDraw = false;
+    //    定义一个集合保存状态
+    private List<Point> list = new ArrayList<>();
 
     public NinePoint(Context context) {
         super(context);
@@ -58,20 +58,20 @@ public class NinePoint extends View {
         mouseX = event.getX();
         mouseY = event.getY();
         int[] ij;
-        int i,j;
+        int i, j;
 //        判断状态
         switch (event.getAction()) {
             case MotionEvent.ACTION_DOWN:
 
 //                处理触摸事件 是否按在点上
-                ij=getSelectPoint();
-                if (ij!=null) {
+                ij = getSelectPoint();
+                if (ij != null) {
 //                    是否处于绘制状态
-                    isDraw=true;
-                    i=ij[0];
-                    j=ij[1];
+                    isDraw = true;
+                    i = ij[0];
+                    j = ij[1];
 //                    修改状态
-                    points[i][j].state=Point.STATE_RIGHT;
+                    points[i][j].state = Point.STATE_RIGHT;
 //                    把点添加到集合中
                     list.add(points[i][j]);
                 }
@@ -79,38 +79,38 @@ public class NinePoint extends View {
             case MotionEvent.ACTION_MOVE:
 
                 if (isDraw) {
-                    ij=getSelectPoint();
-                    if(ij!=null){
-                        i=ij[0];
-                        j=ij[1];
+                    ij = getSelectPoint();
+                    if (ij != null) {
+                        i = ij[0];
+                        j = ij[1];
 
-                        if (!list.contains(points[i][j])){
-                            points[i][j].state=Point.STATE_RIGHT;
+                        if (!list.contains(points[i][j])) {
+                            points[i][j].state = Point.STATE_RIGHT;
                             list.add(points[i][j]);
                         }
                     }
                 }
                 break;
             case MotionEvent.ACTION_UP:
-                isDraw=false;
+                isDraw = false;
                 break;
         }
         this.postInvalidate();
         return true;
     }
 
-//    获取点击的位置
-    private int[] getSelectPoint(){
+    //    获取点击的位置
+    private int[] getSelectPoint() {
 //        点击位置生成点坐标
-        Point pmouse=new Point(mouseX,mouseY);
-        for (int i = 0; i <points.length ; i++) {
-            for (int j = 0; j <points[i].length ; j++) {
-                if(points[i][j].distance(pmouse)<bitMapR){
+        Point pmouse = new Point(mouseX, mouseY);
+        for (int i = 0; i < points.length; i++) {
+            for (int j = 0; j < points[i].length; j++) {
+                if (points[i][j].distance(pmouse) < bitMapR) {
 //                    有效的手势动作
-                    int[] result=new int[3];
-                    result[0]=i;
-                    result[1]=j;
-                    return  result;
+                    int[] result = new int[3];
+                    result[0] = i;
+                    result[1] = j;
+                    return result;
                 }
             }
         }
@@ -126,28 +126,29 @@ public class NinePoint extends View {
         }
         drawPoint(canvas);
 //        先判断是否有点
-        if(list.size()>0){
+        if (list.size() > 0) {
 //            定义一个变量
-            Point a=list.get(0);
+            Point a = list.get(0);
             for (int i = 1; i < list.size(); i++) {
 //                绘制一条两点之间的线
-                Point b=list.get(i);
-                drawline(a,b,canvas);
+                Point b = list.get(i);
+                drawline(a, b, canvas);
 //                从末尾点从新计算
-                a=b;
+                a = b;
             }
             if (isDraw) {
-                drawline(a,new Point(mouseX,mouseY),canvas);
+                drawline(a, new Point(mouseX, mouseY), canvas);
             }
         }
     }
-//    划线
-    private void drawline(Point a,Point b,Canvas canvas){
-        if(a.state==Point.STATE_RIGHT){
+
+    //    划线
+    private void drawline(Point a, Point b, Canvas canvas) {
+        if (a.state == Point.STATE_RIGHT) {
 //            绘制线
-            canvas.drawLine(a.x,a.y,b.x,b.y,paintlineRight);
-        }else{
-            canvas.drawLine(a.x,a.y,b.x,b.y,paintlineError);
+            canvas.drawLine(a.x, a.y, b.x, b.y, paintlineRight);
+        } else {
+            canvas.drawLine(a.x, a.y, b.x, b.y, paintlineError);
         }
 
     }
@@ -162,12 +163,12 @@ public class NinePoint extends View {
         RightBit = BitmapFactory.decodeResource(getResources(), R.mipmap.rightbit);
         ErrorBit = BitmapFactory.decodeResource(getResources(), R.mipmap.errorbit);
 //        每张图的半径
-        bitMapR=NormalBit.getHeight()/2;
+        bitMapR = NormalBit.getHeight() / 2;
 
 //        定义宽高和矩形
         int widthPoint = getWidth();
         int heightPoint = getHeight();
-        int offSet = Math.abs(widthPoint - heightPoint)/2;
+        int offSet = Math.abs(widthPoint - heightPoint) / 2;
 
         int space;
 
@@ -209,18 +210,30 @@ public class NinePoint extends View {
 //                判断当前状态
                 if (points[i][j].state == Point.STATE_NOMAL) {
 //                    正常状态
-                    canvas.drawBitmap(NormalBit, points[i][j].x-bitMapR, points[i][j].y-bitMapR, paint);
+                    canvas.drawBitmap(NormalBit, points[i][j].x - bitMapR, points[i][j].y - bitMapR, paint);
 
 
                 } else if (points[i][j].state == Point.STATE_RIGHT) {
 //                    按下状态
-                     canvas.drawBitmap(RightBit, points[i][j].x-bitMapR, points[i][j].y-bitMapR, paint);
+                    canvas.drawBitmap(RightBit, points[i][j].x - bitMapR, points[i][j].y - bitMapR, paint);
                 } else {
 //                    错误状态
-                   canvas.drawBitmap(ErrorBit, points[i][j].x-bitMapR, points[i][j].y-bitMapR, paint);
+                    canvas.drawBitmap(ErrorBit, points[i][j].x - bitMapR, points[i][j].y - bitMapR, paint);
                 }
             }
         }
+    }
+
+    //    清楚触摸状态
+    public void clearState() {
+
+        for (int i = 0; i < points.length; i++) {
+            for (int j = 0; j < points[i].length; j++) {
+                points[i][j].state = Point.STATE_NOMAL;
+            }
+        }
+        list.clear();
+
     }
 
 }

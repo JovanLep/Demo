@@ -16,10 +16,8 @@ import java.util.TimerTask;
 
 //第一步继承控件TextView
 public class MyTextView extends android.support.v7.widget.AppCompatTextView {
-    private Context context;
     private String text;
     private Timer timer;
-    String TAG="MyTextView";
 
     //    第二部设置打字时间
     private int mTypeTime = 80;
@@ -31,7 +29,6 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
 
     public MyTextView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
-        this.context = context;
     }
 
     public MyTextView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
