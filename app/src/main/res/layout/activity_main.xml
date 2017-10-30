@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back1"
+    android:orientation="vertical"
+    tools:context="com.lep.demo.ui.Activity.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/main_ninePoint_bt"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/littlewater"
+            android:text="@string/ninePoint" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:text="@string/bannerTitleText"
+            android:textColor="@color/colorRed"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/main_tobt"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:background="@mipmap/littlewater"
+            android:text="打字机" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#CDCCCC"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.bigkoo.convenientbanner.ConvenientBanner
+            android:id="@+id/main_banner"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"></com.bigkoo.convenientbanner.ConvenientBanner>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ListView
+            android:id="@+id/main_SlidingList_normal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"></ListView>
+    </LinearLayout>
+
+
+</LinearLayout>

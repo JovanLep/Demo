@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context="com.lep.demo.ui.Activity.Main2Activity">
+
+    <com.lep.demo.baseView.MyTextView
+        android:id="@+id/main2_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/main2_edit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/colorBlck"
+        android:textColor="@color/colorBlck"
+        android:hint="@string/intputText" />
+
+    <Button
+        android:background="@color/colorRed"
+        android:id="@+id/main2_bt"
+        android:textColorHint="#ffff00"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@string/startInput" />
+
+</RelativeLayout>

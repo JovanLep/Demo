@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">DrawSlidingItem</string>
+    <string name="call">取消</string>
+    <string name="delete">删除</string>
+
+
+    <!--轮播Banner-->
+    <string name="bannerTitleText">练习Demo</string>
+    <string name="ninePoint">九宫格</string>
+
+    <!--启动页-->
+    <string name="intentTextLeft">跳转( </string>
+    <string name="intentTextRight"> )</string>
+
+
+    <!--打印机-->
+    <string name="intputText">请输入要打印的内容！</string>
+    <string name="startInput">开始打印</string>
+
+
+</resources>
