@@ -9,6 +9,7 @@
 
     <com.lep.demo.baseView.MyTextView
         android:id="@+id/main2_tv"
+        android:textColor="@color/colorRed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"

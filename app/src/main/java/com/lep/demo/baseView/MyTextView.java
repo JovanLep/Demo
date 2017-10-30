@@ -44,7 +44,6 @@ public class MyTextView extends android.support.v7.widget.AppCompatTextView {
         //主线程更新ui
         @Override
         public void run() {
-            Log.d(TAG, "run: 1111111111111");
             post(new Runnable() {
                 @Override
                 public void run() {
