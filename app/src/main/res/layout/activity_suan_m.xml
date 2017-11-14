@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.lep.demo.ui.Activity.SuanMActivity">
+
+    <TextView
+        android:textSize="16sp"
+        android:gravity="center_horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="算命大师" />
+
+    <EditText
+        android:id="@+id/suanm_name_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="姓名" />
+
+    <EditText
+        android:id="@+id/suanm_age_edt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="年龄" />
+
+    <CheckBox
+        android:text="有没有对象"
+        android:id="@+id/suanm_cb"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <RadioGroup
+        android:id="@+id/suanm_rg"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/suanm_man"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="男" />
+
+        <RadioButton
+            android:text="女"
+            android:id="@+id/suanm_woman"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <RadioButton
+            android:text="隐藏"
+            android:id="@+id/suanm_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/suanm_start"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="算命" />
+
+</LinearLayout>

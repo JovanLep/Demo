@@ -1,5 +1,6 @@
 package com.lep.demo.retrofit;
 
+import com.lep.demo.bean.BannerDate;
 import com.lep.demo.bean.BannerEntity;
 
 import retrofit2.Call;
@@ -12,15 +13,16 @@ import rx.Observable;
 /**
  * Created by android on 2017/10/27.
  *  apiService
+ *  http://uhome.haier.net:7500/emuplus/secuag/advert/1000/getAdvertInfo
  */
 
 public interface BannerService {
 
-    @GET("latest")
-    Call<BannerEntity> getBannerEntity();
+    @GET("/emuplus/secuag/advert/1000/getAdvertInfo")
+    Observable<BannerDate> getBanner();
 
-    @GET("latest")
-    Observable<BannerEntity> getBannerEntity2();
+    @GET("getAdvertInfo")
+    Call<BannerEntity> getBannerEntity();
 
     @FormUrlEncoded
     @POST("top250")

@@ -5,5 +5,6 @@ package com.lep.demo.utils;
  */
 
 public class UrlUtils {
-    public  static final String bannerUrl="http://news-at.zhihu.com/api/4/news/";
+//    public  static final String bannerUrl="http://news-at.zhihu.com/api/4/news/";
+    public  static final String baseUrl="http://uhome.haier.net:7500";
 }

@@ -10,13 +10,14 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.lep.demo.R;
+import com.lep.demo.utils.BaseUtils;
 
 import java.util.Timer;
 import java.util.TimerTask;
 
 
 public class LoadingActivity extends AppCompatActivity implements View.OnClickListener {
-    private int intentTime = 6;
+    private int intentTime = 5999;
     private LinearLayout TimeLinear;
     private TextView TimeTv;
     Timer timer = new Timer();
@@ -26,7 +27,7 @@ public class LoadingActivity extends AppCompatActivity implements View.OnClickLi
         public void handleMessage(Message msg) {
             switch (msg.what){
                 case 1:
-                    TimeTv.setText(intentTime+"");
+                    TimeTv.setText(BaseUtils.secToTime(intentTime));
                     if(intentTime<=0){
                         timerTask.cancel();
                         intentActivity();
@@ -58,12 +59,13 @@ public class LoadingActivity extends AppCompatActivity implements View.OnClickLi
         TimeLinear = (LinearLayout) findViewById(R.id.loadtime_ll);
         TimeTv = (TextView) findViewById(R.id.loadtime_tv);
         TimeLinear.setOnClickListener(this);
-        timer.schedule(timerTask, 500, 1000);
+        timer.schedule(timerTask, 500, 10);
     }
 
     private void intentActivity(){
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override

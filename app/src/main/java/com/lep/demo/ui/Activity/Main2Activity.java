@@ -21,6 +21,7 @@ public class Main2Activity extends AppCompatActivity {
     private EditText editText;
     private Button button;
     private MyTextView myTextView;
+    private ImageView loveImag;
 //    private String[] love = {
 //            "          深秋\n" +
 //                    "      本宝宝\n" +
@@ -30,7 +31,6 @@ public class Main2Activity extends AppCompatActivity {
 //                    "亦存牵挂暖秋。",
 //
 //    };
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,12 @@ public class Main2Activity extends AppCompatActivity {
     private void initView() {
 
         button = (Button) findViewById(R.id.main2_bt);
+        loveImag = (ImageView) findViewById(R.id.main2_imag);
+        Glide.with(this)
+                .load(R.drawable.love)
+                .asGif()
+                .override(200,200)
+                .into(loveImag);
         myTextView = (MyTextView) findViewById(R.id.main2_tv);
         myTextView.setTextColor(Color.RED);
         editText = (EditText) findViewById(R.id.main2_edit);
@@ -50,7 +56,7 @@ public class Main2Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String str = editText.getText().toString();
-                myTextView.setText(str);
+                myTextView.start(str);
 //                myTextView.setTextColor(R.color.colorRed);
 //                for (int i = 0; i < love.length; i++) {
 //                    myTextView.start(love[i]);

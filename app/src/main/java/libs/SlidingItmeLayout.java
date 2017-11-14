@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ListView;
@@ -23,6 +24,7 @@ public class SlidingItmeLayout extends FrameLayout {
     private int horizontalDX;
     private SlidingType slidingType = SlidingType.Right;
     private SlidingStates slidingStates = SlidingStates.Close;
+    private boolean isMove=false;
 
 
     //定义滑动位置
@@ -37,6 +39,27 @@ public class SlidingItmeLayout extends FrameLayout {
         Open, Close, Sliding
     }
 
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                isMove=true;
+
+                break;
+            case MotionEvent.ACTION_MOVE:
+                if (isMove) {
+
+                }
+
+                break;
+            case MotionEvent.ACTION_UP:
+                isMove=false;
+
+                break;
+        }
+
+        return super.onTouchEvent(event);
+    }
 
     public SlidingItmeLayout(@NonNull Context context) {
         super(context);
@@ -103,7 +126,6 @@ public class SlidingItmeLayout extends FrameLayout {
         }
 //        6.2.3摆放contentView的关闭状态
         return new Rect(left, 0, left + getMeasuredWidth(), getMeasuredHeight());
-
     }
 
     private Rect layoutFouctionView(boolean isOpen, Rect rect) {
@@ -116,7 +138,6 @@ public class SlidingItmeLayout extends FrameLayout {
             } else if (slidingType == SlidingType.Left) {
                 left = 0;
             }
-
         } else {
 //关闭
             if (slidingType == SlidingType.Right) {
@@ -128,10 +149,4 @@ public class SlidingItmeLayout extends FrameLayout {
         }
         return new Rect(left, 0, left + horizontalDX, functionView.getMeasuredHeight());
     }
-
-
-
-
-
-
 }
